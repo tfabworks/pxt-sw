@@ -1,3 +1,10 @@
+enum BrightnessEvent {
+    //% block="より暗い"
+    IsDark = 1,
+    //% block="より明るい"
+    IsBrighter = 2,
+}
+
 //% weight=70 icon="\uf0e7" color=#d2691e block="電気の利用(SW)"
 namespace gp {
     //% blockId=turn_on block="スイッチON"
@@ -16,13 +23,17 @@ namespace gp {
             return false;
         }
     }
-    //% blockId=is_darkerthan block="%v より暗い"
+    //% blockId=brightness_determination block="%v より %flag"
     //% v.min=0 v.max=100
-    export function isDarkerThan(v: number): boolean {
+    export function brightnessDetermination(v: number, flag: BrightnessEvent): boolean {
+        let res: boolean = true;
+        if (flag == 2) {
+            res = !res;
+        }
         if (input.lightLevel() < v) {
-            return true;
+            return res;
         } else {
-            return false;
+            return !res;
         }
     }
 }

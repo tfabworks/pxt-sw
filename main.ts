@@ -1,7 +1,7 @@
 enum BrightnessEvent {
-    //% block="より暗い"
+    //% block="暗い"
     IsDark = 1,
-    //% block="より明るい"
+    //% block="明るい"
     IsBrighter = 2,
 }
 

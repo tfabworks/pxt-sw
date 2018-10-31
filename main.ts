@@ -1,16 +1,25 @@
 //% weight=70 icon="\uf0e7" color=#d2691e block="電気の利用(SW)"
 namespace gp {
-    //% blockId=turn_on block="スイッチON %v"
+    //% blockId=turn_on block="スイッチON"
     export function turnON(): void {
         pins.digitalWritePin(DigitalPin.P0, 1)
     }
-    //% blockId=turn_off block="スイッチOFF %v"
+    //% blockId=turn_off block="スイッチOFF"
     export function turnOFF(): void {
         pins.digitalWritePin(DigitalPin.P0, 0)
     }
-    //% blockId=is_dark block="暗い %v"
+    //% blockId=is_dark block="暗い"
     export function isDark(): boolean {
         if (input.lightLevel() < 30) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //% blockId=is_darkerthan block="%v より暗い"
+    //% v.min=0 v.max=100
+    export function isDarkerThan(v: number): boolean {
+        if (input.lightLevel() < v) {
             return true;
         } else {
             return false;

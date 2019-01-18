@@ -5,7 +5,7 @@ enum BrightnessEvent {
     IsBrighter = 2,
 }
 
-//% weight=70 icon="\uf0e7" color=#d2691e block="電気の利用(SW)"
+//% weight=70 icon="\uf1e6" color=#0fbc11 block="電気の利用(SW)"
 namespace gp {
     //% blockId=turn_on block="スイッチON"
     export function turnON(): void {
